@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=720, height=1280, user-scalable=no">
+    
+    <link rel="stylesheet" href="tizen-web-ui-fw/latest/themes/tizen-white/tizen-web-ui-fw-theme.min.css" name="tizen-theme"/>
+    <title>Squares</title>
+    <!--NOTE:
+        jquery.js and web-ui-fw.js must be included.
+        DO NOT REMOVE below code!
+    -->
+    <script src="tizen-web-ui-fw/latest/js/jquery.min.js"></script>
+    <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw-libs.min.js"></script>
+    <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw.min.js"
+        data-framework-theme="tizen-black"></script>
+
+    <!--NOTE:
+        Additional scripts and css files are to be placed here.
+        You can use jQuery namespace($) and all functionalities in jQuery
+        in your script.  For example:
+
+            <script src="main.js"></script>
+            <link rel="stylesheet" href="my.css">
+    -->
+    <script type="text/javascript" src="./js/iioEngine.js"></script>
+    <script type="text/javascript" src="js/iio_extensions/iioDebugger.js"></script>
+    
+    <script type="text/javascript" src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+</head>
+
+<body id="c_body">
+<audio preload="auto" id="background_song">
+	<source src="./sounds/AlexBeroza_-_Drive (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+<script type="text/javascript">
+	GridApp = function(io){
+		var myAudio = document.getElementById('background_song');
+		if(!audioManager.isMuted()){
+			myAudio.addEventListener('canplaythrough', function() {
+				this.play();
+			});
+		}
+		
+		
+		$(function() {
+		    $(window).focus(function() {
+		        if(myAudio.paused && !audioManager.isMuted() && gameActive){
+		        	myAudio.play();
+		        }
+		        unPauseGame();
+		    });
+		    $(window).blur(function() {
+		        if(!myAudio.paused || audioManager.isMuted()){
+		        	myAudio.pause();
+		        }
+		        pauseGame();
+		    });
+		});
+		
+		//io.activateDebugger();
+		
+		initGrid(io);
+
+        this.onResize=function(){
+         	//var blockSize = Math.round((width-2*border)/num_width);
+        	//grid.set(0,0,io.canvas,gridRes);
+        	io.draw();
+        }
+	};
+	iio.start(GridApp);
+</script>
+</body>
+</html>

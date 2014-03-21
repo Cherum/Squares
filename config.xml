@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://www.cherum.de/Dotted" version="1.0.0" viewmodes="fullscreen">
+    <tizen:application id="dzaFZ7jwoI.Squares" package="dzaFZ7jwoI" required_version="2.2"/>
+    <author href="http://www.cherum.de" email="gamesupport@cherum.de"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal.480.800"/>
+    <feature name="http://tizen.org/feature/screen.size.normal.720.1280"/>
+    <icon src="icon.png"/>
+    <name>Squares!</name>
+    <preference name="screen-orientation" value="portrait" readonly="false"/>
+    <tizen:setting screen-orientation="portrait" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget>

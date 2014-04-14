@@ -1,7 +1,7 @@
 Squares
 =======
 
-A Dots inspired game for Tizen, created with HTML5 and the iio Engine.
+A Dots inspired game for Tizen, created with HTML5 and the iio Javascript Engine.
 
 ### Screenshot
 

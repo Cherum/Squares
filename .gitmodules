@@ -1,0 +1,3 @@
+[submodule "js/iioengine"]
+	path = js/iioengine
+	url = https://github.com/sbiermanlytle/iioengine.git
